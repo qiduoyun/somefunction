@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% load static %}
+    <script rel="script"  src="https://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="{% static 'user/style.css'%}">
+    <meta charset="UTF-8">
+    <title>{{userblog.blog_title }}</title>
+</head>
+<body>
+<div>
+    <h2>{{userblog.blog_title }}</h2>
+    <table>
+        <tr>
+           发布时间： {{ userblog.blog_pud_time }}
+        </tr>
+    </table>
+    <p class="text">{{userblog.blog_content }}</p>
+   <button>点我隐藏内容</button>
+</div>
+</body>
+<script>
+   $(document).ready(function () {
+       $("button").click(function () {
+           $(".text").hide()
+       })
+
+   })
+</script>
+</html>

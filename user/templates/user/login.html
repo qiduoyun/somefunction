@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static 'user/style.css'%}">
+    <meta charset="UTF-8">
+    <title>登录</title>
+</head>
+<body>
+<form action="" method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    {{ error }}
+    <input type="submit" value="登录">
+    <a href="{% url 'user:register' %}">注册</a>
+</form>
+</body>
+</html>

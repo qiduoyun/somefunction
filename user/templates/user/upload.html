@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% load static %}
+    <link href="//vjs.zencdn.net/6.7/video-js.min.css" rel="stylesheet">
+    <script src="//vjs.zencdn.net/6.7/video.min.js"></script>
+
+    <link rel="stylesheet" type="text/css" href="{% static 'user/style.css' %}">
+    <meta charset="UTF-8">
+    <title>文件上传</title>
+</head>
+<body>
+<form action=""  method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+    <input type="text" name="file_name">
+    <input type="file" name="file_upload">
+
+
+
+    <input type="submit"  value="上传">
+</form>
+{% if  userfile_list  %}
+
+
+     <div>
+     {% for userfile in userfile_list %}
+
+         <a href="../download/{{ userfile.id }}">{{userfile.file_name }}</a><br/>
+
+
+
+
+
+      {% endfor %}
+      <img src="../download/11">
+     <video  controls="controls">
+         <source src="../download/13" type="video/ogg">
+         <source src="../download/13" type="video/mp4">
+         Your browser does not support the video tag.
+     </video>
+ {% else %}
+    {{ "文件不存在" }}
+    </div>
+
+{% endif %}
+<video
+    id="my-player"
+    class="video-js"
+    controls
+    preload="auto"
+    poster="//vjs.zencdn.net/v/oceans.png"
+    data-setup='{}'>
+  <source src="../download/16" type="video/mp4"></source>
+  <source src="../download/16" type="video/webm"></source>
+  <source src="../download/16" type="video/ogg"></source>
+  <p class="vjs-no-js">
+    To view this video please enable JavaScript, and consider upgrading to a
+    web browser that
+    <a href="http://videojs.com/html5-video-support/" target="_blank">
+      supports HTML5 video
+    </a>
+  </p>
+</video>
+
+</body>
+
+</html>

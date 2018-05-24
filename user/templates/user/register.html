@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="zh-hans">
+<head>
+    <meta charset="UTF-8">
+    <title>注册</title>
+</head>
+<body>
+<form action="."   method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    {{ error }}
+    <input type="submit"  value="注册">
+</form>
+{{ user }}
+</body>
+</html>

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>我的博客</title>
+
+</head>
+<body>
+<h1>欢迎访问我的博客</h1>
+{% if  userblog_list  %}
+
+
+     <div>
+     {% for userblog in userblog_list %}
+
+         <a href="../bloglist/{{ userblog.id }}">{{userblog.blog_title }}</a><br/>
+
+
+
+
+      {% endfor %}
+ {% else %}
+    {{ "文章不存在" }}
+
+{% endif %}
+</div>
+
+</body>
+</html>
